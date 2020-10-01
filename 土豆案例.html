@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .tutou {
+            position: relative;
+
+            width: 400px;
+            height: 300px;
+            background-color: pink;
+            margin: 100px auto;
+        }
+        .tutou img {
+           width: 100%; 
+           height: 100%;
+        }
+        .mask {
+            display: none;
+            position: absolute;
+            top:0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0, .2) url("imgs/play.png") no-repeat center;
+        }
+        /* 当鼠标经过的时候,就让里面的遮罩层显示出来 */
+        .tutou:hover .mask {
+            /* 显示元素 */
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="tutou">
+        <div class="mask"></div>
+        <img src="imgs/tutou.jpg" alt="">
+    </div>
+    <div class="tutou">
+        <div class="mask"></div>
+        <img src="imgs/tutou.jpg" alt="">
+    </div>
+    <div class="tutou">
+        <div class="mask"></div>
+        <img src="imgs/tutou.jpg" alt="">
+    </div>
+</body>
+</html>

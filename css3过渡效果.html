@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            width: 200px;
+            height: 100px;
+            background-color: brown;
+            /* 写多个属性逗号分隔 */
+            /* transition: width .5s, height .5s; */
+            /* transition: height .5s; 不能这么写*/
+            /* 所有的属性 */
+            transition: all .5s;
+        }
+        
+        div:hover {
+            width: 250px;
+            height: 150px;
+            background-color: skyblue;
+        }
+        /*
+        .father {
+            width: 200px;
+            height: 200px;
+            background-color: gray;
+        }
+        
+        .son {
+            width: calc(100% - 50px);
+            height: 100px;
+            background-color: green;
+        }
+        */
+    </style>
+</head>
+
+<body>
+
+    <div></div>
+    <!-- <div class="father">
+        <div class="son"></div>
+    </div> -->
+</body>
+
+</html>

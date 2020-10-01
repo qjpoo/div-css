@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .box {
+            width: 978px;
+            height: 170px;
+            background-color: #fff;
+            margin: 100px auto;
+
+        }
+        .box ul {
+            list-style: none;
+        }
+        .box li {
+            width: 316px;
+            height: 170px;
+            float: left;
+            margin-right: 15px;
+            background-color: slateblue;
+        }
+        .one {
+            background-image: url("./imgs/xiaomi/1.jpg");
+        }
+        .two {
+            background-image: url("./imgs/xiaomi/2.jpg");
+        }
+        .box .three {
+            margin-right: 0px;
+            background-image: url("./imgs/xiaomi/3.jpg");
+        }
+        /* 
+        这里必须写 .box .three 要注意权重的问题
+        .box .three {
+            margin-right: 0;
+        }
+        */
+
+    </style>
+</head>
+<body>
+    <div class="box">
+        <ul>
+            <li class="one"></li>
+            <li class="two"></li>
+            <li class="three"></li>
+        </ul>
+    </div>
+    
+</body>
+</html>

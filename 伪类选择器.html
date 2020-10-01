@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>伪类选择器</title>
+    <style>
+        /*未访问的链接*/
+        
+        a:link {
+            color: #333;
+            text-decoration: none;
+        }
+        /*访问过的颜色*/
+        
+        a:visited {
+            color: salmon;
+        }
+        /*经过时候*/
+        
+        a:hover {
+            color: skyblue;
+        }
+        /*鼠标点击链接,按下鼠标键的时候*/
+        
+        a:active {
+            color: green;
+        }
+        
+        input:focus {
+            background-color: red;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div><a href="#">visitor google</a></div>
+
+    <input type="text"> <input type="text"> <br>
+    <span>1</span>
+    <span>2</span>
+    <span>3</span>
+
+
+    <span>xxxooo</span><strong>hello</strong>
+
+</body>
+
+</html>

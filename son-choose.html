@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>son-choose</title>
+    <style>
+        /* 后代选择器 */
+        
+        .nav a {
+            color: red
+        }
+        /*子选择器,a是亲儿子*/
+        
+        .title>a {
+            color: green;
+        }
+        
+        .test a {
+            color: red;
+        }
+        
+        .hot>a {
+            color: saddlebrown;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="nav">
+        <a href="">我是亲儿子</a>
+        <p>
+            <a href="">我是孙子</a>
+        </p>
+    </div>
+
+    <div class="title">
+        <a href="">我是亲儿子</a>
+        <p>
+            <a href="">我是孙子</a>
+        </p>
+    </div>
+
+
+    <div class="test">
+        <ul>
+            <li><a href="#">百度</a></li>
+            <li><a href="#">新浪</a></li>
+        </ul>
+    </div>
+
+    <div class="hot">
+        <a href="#">大肘子</a>
+        <ul>
+            <li>猪头肉</li>
+            <li>猪尾巴</li>
+        </ul>
+    </div>
+</body>
+
+</html>

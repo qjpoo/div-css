@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>JavaScript banner轮播 左右切换 圆点点击切换</title>
+
+    <style type="text/css">
+        div,
+        ul,
+        li,
+        a,
+        span,
+        img {
+            margin: 0;
+            padding: 0;
+        }
+        
+        #banner {
+            overflow: hidden;
+            width: 100%;
+            height: 400px;
+            position: relative;
+            float: left;
+            padding-bottom: 10px;
+        }
+        
+        #tab>img:not(:first-child) {
+            display: none;
+        }
+        
+        .lunbo_btn {
+            height: 15px;
+            width: 100%;
+            margin: 0px auto;
+            margin-top: -40px;
+            position: absolute;
+            z-index: 3;
+            text-align: center;
+        }
+        
+        .lunbo_btn span {
+            width: 14px;
+            height: 14px;
+            display: inline-block;
+            background-color: #b4b5b7;
+            border-radius: 50%;
+            margin: 0px 2px;
+            cursor: pointer;
+        }
+        
+        .lunbo_btn span.hover {
+            background-color: #ffb23c;
+        }
+        
+        .arrow {
+            display: none;
+            width: 30px;
+            height: 60px;
+            background-color: rgba(0, 0, 0, 0.4);
+            position: absolute;
+            top: 50%;
+            margin-top: -30px;
+            z-index: 999;
+        }
+        
+        .arrow span {
+            display: block;
+            width: 10px;
+            height: 10px;
+            border-bottom: 2px solid #fff;
+            border-left: 2px solid #fff;
+        }
+        
+        .slider_left {
+            margin: 25px 0 0 10px;
+            transform: rotate(45deg);
+        }
+        
+        .prve {
+            left: 0;
+        }
+        
+        .next {
+            right: 0;
+        }
+        
+        .slider_right {
+            margin: 25px 0 0 5px;
+            transform: rotate(-135deg);
+        }
+        
+        .arrow:hover {
+            background: #444;
+        }
+        
+        #banner:hover .arrow {
+            display: block;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div id="banner">
+        <!-- 轮播图片 -->
+        <div id="tab">
+            <img class="tabImg" src="imgs/jd/1.jpg" height="400" />
+            <img class="tabImg" src="imgs/jd/2.jpg" height="400" />
+            <img class="tabImg" src="imgs/jd/3.jpg" height="400" />
+            <img class="tabImg" src="imgs/jd/4.jpg" height="400" />
+        </div>
+        <!-- 指示符 -->
+        <div class="lunbo_btn">
+            <span num="0" class="tabBtn hover"></span>
+            <span num="1" class="tabBtn"></span>
+            <span num="2" class="tabBtn"></span>
+            <span num="3" class="tabBtn"></span>
+        </div>
+        <!-- 左右切换按钮 -->
+        <div class="arrow prve">
+            <span class="slider_left"></span>
+        </div>
+        <div class="arrow next">
+            <span class="slider_right"></span>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        //轮播图
+        var curIndex = 0; //初始化
+        var img_number = document.getElementsByClassName('tabImg').length;
+        var _timer = setInterval(runFn, 2000); //2秒
+        function runFn() { //运行定时器         
+            curIndex = ++curIndex == img_number ? 0 : curIndex; //算法 4为banner图片数量
+            slideTo(curIndex);
+        }
+
+        //圆点点击切换轮播图
+        window.onload = function() { //为按钮初始化onclick事件
+            var tbs = document.getElementsByClassName("tabBtn");
+            for (var i = 0; i < tbs.length; i++) {
+                tbs[i].onclick = function() {
+                    clearInterval(_timer); //细节处理，关闭定时，防止点切图和定时器函数冲突
+                    slideTo(this.attributes['num'].value);
+                    curIndex = this.attributes['num'].value
+                    _timer = setInterval(runFn, 2000); //点击事件处理完成，继续开启定时轮播
+                }
+            }
+        }
+
+        var prve = document.getElementsByClassName("prve");
+        prve[0].onclick = function() { //上一张
+            clearInterval(_timer); //细节处理，关闭定时，防止点切图和定时器函数冲突
+            curIndex--;
+            if (curIndex == -1) {
+                curIndex = img_number - 1;
+            }
+            slideTo(curIndex);
+            _timer = setInterval(runFn, 2000); //点击事件处理完成，继续开启定时轮播
+        }
+
+        var next = document.getElementsByClassName("next");
+        next[0].onclick = function() { //下一张
+            clearInterval(_timer); //细节处理，关闭定时，防止点切图和定时器函数冲突
+            curIndex++;
+            if (curIndex == img_number) {
+                curIndex = 0;
+            }
+            slideTo(curIndex);
+            _timer = setInterval(runFn, 2000); //点击事件处理完成，继续开启定时轮播
+        }
+
+        //切换banner图片 和 按钮样式
+        function slideTo(index) {
+            console.log(index)
+            var index = parseInt(index); //转int类型
+            var images = document.getElementsByClassName('tabImg');
+            for (var i = 0; i < images.length; i++) { //遍历每个图片
+                if (i == index) {
+                    images[i].style.display = 'inline'; //显示            
+                } else {
+                    images[i].style.display = 'none'; //隐藏
+                }
+            }
+            var tabBtn = document.getElementsByClassName('tabBtn');
+            for (var j = 0; j < tabBtn.length; j++) { //遍历每个按钮
+                if (j == index) {
+                    tabBtn[j].classList.add("hover"); //添加轮播按钮hover样式
+                    curIndex = j;
+                } else {
+                    tabBtn[j].classList.remove("hover"); //去除轮播按钮hover样式
+                }
+            }
+
+        }
+    </script>
+</body>
+
+</html>

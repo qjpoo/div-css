@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>box布局</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        body {
+            background-color: #f5f5f5;
+        }
+        
+        a {
+            color: #333;
+            text-decoration: none;
+        }
+        
+        a:hover {
+            color: gray;
+        }
+        
+        .box {
+            width: 298px;
+            height: 415px;
+            background-color: #fff;
+            /* 让块级的盒子水平居中对齐*/
+            /*margin: 100px auto; */
+            margin-top: 100px;
+            margin-left: 100px;
+            margin-bottom: 100px;
+            display: inline-block;
+        }
+        
+        .box img {
+            /* 图片的宽度和父亲一样宽 */
+            width: 100%;
+        }
+        
+        .review {
+            height: 70px;
+            font-size: 12px;
+            /* 因为这个段落没有width属性 所以padding不会撑开盒子的宽度 */
+            padding: 0 30px;
+            margin: 30px;
+            color: #141414;
+        }
+        
+        .appraise {
+            font-size: 12px;
+            color: #b0b0b0;
+            margin-top: 20px;
+            padding: 0 28px;
+        }
+        
+        .info {
+            font-size: 14px;
+            margin-top: 15px;
+            padding: 0 28px;
+        }
+        
+        .info h4 {
+            display: inline-block;
+            font-weight: 400;
+        }
+        
+        .info span {
+            color: tomato;
+        }
+        
+        .info em {
+            font-style: normal;
+            color: #ebe4e0;
+            margin: 0 4px 0 4px;
+            /* 上右下左 */
+            font-weight: bolder;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <a href="#"><img src="./imgs/dior.png" alt=""></a>
+        <a href="#">
+            <p class="review">迪奥（Dior）烈艳蓝金口红哑光999# 3.5g 传奇红（口红 迪奥999 口红自营 传奇正红 精美礼盒/礼袋随机）</p>
+        </a>
+        <div class="appraise">来自于 11980091 的评价</div>
+        <div class="info">
+            <h4><a href="#">迪奥烈艳蓝金口红...</a></h4>
+            <em>|</em>
+            <span>29999.0元</span>
+        </div>
+    </div>
+
+    <div class="box">
+        <a href="#"><img src="./imgs/airpods2.jpg" alt=""></a>
+        <a href="#">
+            <p class="review">Apple AirPods 配充电盒 Apple蓝牙耳机 适用iPhone/iPad/Apple Watch</p>
+        </a>
+        <div class="appraise">来自于 12981991 的评价</div>
+        <div class="info">
+            <h4><a href="#">Apple AirPods</a></h4>
+            <em>|</em>
+            <span>12999.0元</span>
+        </div>
+    </div>
+</body>
+
+</html>

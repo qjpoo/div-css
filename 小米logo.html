@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .logo {
+            position: relative;
+            display: block;
+            width: 55px;
+            height: 55px;
+            overflow: hidden;
+            background-color: #ff6700;
+        }
+        
+        .ir {
+            text-align: left;
+            text-indent: -9999em;
+            /*当CSS能加载出来，这个是看不见的，当只有HTML加载出来，这个文字是可以看到的*/
+        }
+        
+        .logo::before,
+        .logo::after {
+            position: absolute;
+            /*绝对定位*/
+            left: 0;
+            top: 0;
+            z-index: 1;
+            /*设置层级，相当于PS中的图层，越小越靠下*/
+            width: 55px;
+            height: 55px;
+            content: '';
+            /*用来插入东西的，这里必须为空，这个经常和 :before 及 :after 伪元素配合使用*/
+            transform-origin: 50% 50%;
+            transition: all .2s;
+            /*设置动画*/
+        }
+        
+        .logo::before {
+            background: url("imgs/mi.logo.png") no-repeat 50% 50%;
+            opacity: 1;
+            /*透明的，1为完全不透明，0为完全透明*/
+            transform: translate(0, 0);
+        }
+        
+        .logo::after {
+            background: url("imgs/mi.logo-1.png") no-repeat 50% 50%;
+            opacity: 0;
+            /*因为这张图片是在左边的，要设置成完全透明的*/
+            margin-left: -55px;
+            /*放在左边看不到的地方*/
+            transform: translate(0, 0);
+        }
+        
+        .logo:hover::before {
+            /*鼠标经过事件，小米logo变透明，向右移动*/
+            opacity: 0;
+            transform: translateX(55px);
+        }
+        
+        .logo:hover::after {
+            /*鼠标经过事件，首页图标变不透明，向右移动*/
+            opacity: 1;
+            transform: translateX(55px);
+        }
+    </style>
+</head>
+
+<body>
+
+</body>
+
+<a class="logo ir" href="#" title="小米官网">小米官网</a>
+</div>
+
+</html>
